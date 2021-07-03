@@ -1,19 +1,26 @@
 <?php
 
-require_once('diffDate.php');
-require_once('getResponse.php');
+require('getAllData.php');
+require_once('arrayUnifyProviderA.php');
+require_once('arrayUnifyProviderB.php');
 
-// request declaration
-$fromDate = '2/21/2021';
-$toDate = '2/25/2021';
-$cityCode = 3;
-$adults = 3;
+// declare data
+$requestData = [
+    'dateForm' => '2/21/2021',
+    'dateTo' => '2/25/2021',
+    'city' => 3,
+    'adults' => 5
+];
 
-// get the different between start date and end date
-$daysDiff = getDays($fromDate, $toDate);
 
-// get the response and print
-$result = getHotels($daysDiff, $cityCode, $adults);
-echo "<pre>";echo json_encode($result, JSON_PRETTY_PRINT);
+// get all data
+$getAllData = getAllData($requestData);
+
+//unify the data
+$arrProviderA = arrayUnifyProviderA($getAllData[0]);
+$arrProviderB = arrayUnifyProviderB($getAllData[1]);
+
+//merge the arrays together and print the result
+print_r(array_merge($arrProviderA,$arrProviderB));
 
 ?>
