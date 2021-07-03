@@ -12,7 +12,6 @@ $requestData = [
     'adults' => 5
 ];
 
-
 // get all data
 $getAllData = getAllData($requestData);
 
