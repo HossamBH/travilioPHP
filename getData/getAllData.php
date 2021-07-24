@@ -1,7 +1,9 @@
 <?php
-    require 'vendor/autoload.php';
-    require 'getProviderData.php';
+namespace App;
+require 'vendor/autoload.php';
+require 'getProviderData.php';
 
+class getData{
     function getAllData($requestData)
     {
         // get data of provider A
@@ -20,4 +22,5 @@
 
         return $result;
     }
+}
 ?>
