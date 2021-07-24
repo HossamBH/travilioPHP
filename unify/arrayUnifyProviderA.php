@@ -1,7 +1,12 @@
 <?php
-    function arrayUnifyProviderA($response)
+require_once('unifyProvider.php');
+class providerA implements unifyProviderData{
+
+    public function unifyProviderData($response)
     {
+        $result = [];
         foreach($response as $key => $value){
+            $result[$key] = new stdclass();
             $result[$key]->Hotel = $value->Hotel;
             $result[$key]->Rate = $value->Rate;
             $result[$key]->Price = $value->Fare;
@@ -9,4 +14,5 @@
         }
         return $result;
     }
+}
 ?>

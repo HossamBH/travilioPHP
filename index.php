@@ -1,15 +1,14 @@
 <?php
-namespace App;
 
 require('getData/getAllData.php');
-require_once('unify/arrayUnifyProviderA.php');
-require_once('unify/arrayUnifyProviderB.php');
+require('unify/arrayUnifyProviderA.php');
+require('unify/arrayUnifyProviderB.php');
 
 class mainA{
     public static function main(){
         // declare data
         $requestData = [
-            'dateForm' => '2/21/2021',
+            'dateFrom' => '2/21/2021',
             'dateTo' => '2/25/2021',
             'city' => 3,
             'adults' => 5
@@ -20,8 +19,10 @@ class mainA{
         $getAllData = $getData->getAllData($requestData);
 
         //unify the data
-        $arrProviderA = arrayUnifyProviderA($getAllData[0]);
-        $arrProviderB = arrayUnifyProviderB($getAllData[1]);
+        $providerA = new providerA;
+        $providerB = new providerB;
+        $arrProviderA = $providerA->unifyProviderData($getAllData[0]);
+        $arrProviderB = $providerB->unifyProviderData($getAllData[1]);
 
         //merge the arrays together and print the result
         return array_merge($arrProviderA,$arrProviderB);
