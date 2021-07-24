@@ -1,4 +1,6 @@
 <?php
+namespace App\getData;
+
 require 'vendor/autoload.php';
 
 class getData{

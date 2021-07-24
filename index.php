@@ -1,4 +1,9 @@
 <?php
+namespace App;
+
+use App\getData\getData;
+use unify\providerA;
+use unify\providerB;
 
 require('getData/getAllData.php');
 require('unify/arrayUnifyProviderA.php');

@@ -1,4 +1,8 @@
 <?php
+namespace unify;
+
+use unify\unifyProviderData;
+use stdClass;
 require_once('unify/unifyProvider.php');
 class providerB implements unifyProviderData{
 
